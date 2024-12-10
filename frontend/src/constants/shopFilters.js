@@ -1,0 +1,31 @@
+export const categoriesFilters = [
+  { value: "womens_clothing", label: "Women's Clothing" },
+  { value: "mens_clothing", label: "Men's Clothing" },
+  { value: "kids_clothing", label: "Kids' Clothing" },
+  { value: "accessories", label: "Accessories" },
+  { value: "shoes", label: "Shoes" },
+  { value: "activewear", label: "Activewear" },
+  { value: "swimwear", label: "Swimwear" },
+  { value: "outerwear", label: "Outerwear" },
+  { value: "jewelry", label: "Jewelry" },
+  { value: "bags_purses", label: "Bags & Purses" },
+  { value: "luxury_fashion", label: "Luxury Fashion" },
+  { value: "sustainable_fashion", label: "Sustainable Fashion" },
+  { value: "sale", label: "Sale" },
+  { value: "new_arrivals", label: "New Arrivals" },
+  { value: "plus_size", label: "Plus Size" },
+  { value: "designer_brands", label: "Designer Brands" },
+  { value: "beauty_skincare", label: "Beauty & Skincare" },
+  { value: "sportswear", label: "Sportswear" },
+  { value: "loungewear", label: "Loungewear" },
+  { value: "party_wear", label: "Party Wear" },
+];
+
+export const priceFilters = [
+  { value: "under_50", label: "Under $50" },
+  { value: "50_100", label: "$50 - $100" },
+  { value: "100_200", label: "$100 - $200" },
+  { value: "200_500", label: "$200 - $500" },
+  { value: "500_1000", label: "$500 - $1000" },
+  { value: "1000_above", label: "$1000 and above" },
+];

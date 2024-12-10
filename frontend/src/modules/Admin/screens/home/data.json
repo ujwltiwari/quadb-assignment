@@ -1,0 +1,32 @@
+{
+  "status": [
+    {
+      "title": "Total Users",
+      "count": 40689,
+      "percentage": 6.3,
+      "icon": "/src/assets/icons/user.svg"
+    },
+    {
+      "title": "Total Order",
+      "count": 10293,
+      "percentage": 8.5,
+      "icon": "/src/assets/icons/product.svg"
+
+    },
+    {
+      "title": "Total Sales",
+      "count": 89000,
+      "isCurrency": true,
+      "percentage": 6.3,
+      "icon": "/src/assets/icons/sales.svg"
+
+    },
+    {
+      "title": "Total Users",
+      "count": 40689,
+      "percentage": 6.3,
+      "icon": "/src/assets/icons/time.svg"
+
+    }
+  ]
+}

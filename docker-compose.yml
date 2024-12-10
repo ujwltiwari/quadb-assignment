@@ -1,0 +1,70 @@
+# version: '3.8'
+
+# services:
+#   frontend:
+#     build:
+#       context: ./frontend
+#       dockerfile: Dockerfile
+#     ports:
+#       - '5173:80' # Maps port 5173 on the host to port 80 in the container
+#     depends_on:
+#       - backend
+#     networks:
+#       - mern-network
+
+#   backend:
+#     build:
+#       context: ./backend
+#       dockerfile: Dockerfile
+#     ports:
+#       - '3000:80' # Maps port 3000 on the host to port 5000 in the container (backend's listening port)
+#     environment:
+#       - MONGO_URI=mongodb://mongo:27017/mern-db
+#     depends_on:
+#       - database
+#     networks:
+#       - mern-network
+
+#   database:
+#     image: mongo
+#     container_name: mongo
+#     ports:
+#       - '27017:27017'
+#     networks:
+#       - mern-network
+#     volumes:
+#       - mongo-data:/data/db
+
+# networks:
+#   mern-network:
+
+# volumes:
+#   mongo-data:
+
+###########
+
+services:
+  slackfrontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '5173:80'
+    depends_on:
+      - db
+  nodebackend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - '9000:9000'
+    depends_on:
+      - db
+  db:
+    volumes:
+      - slack_db:/data/db
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+volumes:
+  slack_db:
