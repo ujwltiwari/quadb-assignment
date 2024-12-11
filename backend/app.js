@@ -28,6 +28,6 @@ app.use('/upload', uploadRoute)
 app.use('/verify', verifyRoute)
 
 // Start the server
-app.listen(9000, () => {
+app.listen(3000, () => {
   console.log(`Server running at http://localhost:${PORT}`)
 })
