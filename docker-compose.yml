@@ -44,20 +44,25 @@
 ###########
 
 services:
-  slackfrontend:
+  frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    container_name: frontend
+    restart: always
     ports:
-      - '5173:80'
-    depends_on:
-      - db
+      - 5173:5173
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_APP_BACKEND_ADDRESS=http://localhost/api
   nodebackend:
     build:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - '9000:9000'
+      - '3000:3000'
     depends_on:
       - db
   db:

@@ -16,7 +16,7 @@ This project is a Node.js application using Express.js framework. It provides va
 ## Installation
 
 1. Clone the repository
-2. Install dependencies using `pnpm install`
+2. Install dependencies using `ppnpm install`
 3. Create a `.env` file with the necessary environment variables
 
 ## Usage
@@ -24,7 +24,7 @@ This project is a Node.js application using Express.js framework. It provides va
 Start the server using:
 
 ```sh
-pnpm start
+ppnpm start
 ```
 
 The server will run on `http://localhost:3000`.
