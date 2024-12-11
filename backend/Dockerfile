@@ -6,3 +6,4 @@ COPY . .
 RUN corepack enable && corepack prepare pnpm@latest --activate
 RUN pnpm install 
 EXPOSE 3000
+CMD ["node", "app.js"]

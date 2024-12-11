@@ -1,21 +1,20 @@
 services:
-  frontend:
+  frontend-prod:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
+      args:
+        - VITE_APP_BACKEND_ADDRESS=https://localhost/api/prod
     container_name: frontend
     restart: always
     ports:
       - 5173:5173
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
-    environment:
-      - VITE_APP_BACKEND_ADDRESS=http://localhost/api
   nodebackend:
     build:
       context: ./backend
       dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=production
     ports:
       - '3000:3000'
     depends_on:
