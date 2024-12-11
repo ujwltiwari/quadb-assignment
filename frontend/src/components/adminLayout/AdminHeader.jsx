@@ -10,13 +10,18 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar.jsx";
 import { IoIosArrowDropdown } from "react-icons/io";
+import { Link } from "react-router-dom";
+
 const AdminHeder = () => {
   return (
     <>
       <header className="flex justify-between pt-4 px-36 gap-24">
-        <div className="scroll-m-20 text-[25px] font-semibold tracking-tight">
+        <Link
+          to="/"
+          className="scroll-m-20 text-[25px] font-semibold tracking-tight"
+        >
           3legant
-        </div>
+        </Link>
         <div>
           <Input
             type="text"

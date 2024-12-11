@@ -21,38 +21,24 @@
 # CMD ["nginx", "-g", "daemon off;"]
 
 # Frontend Dockerfile
-# # Frontend Dockerfile
-FROM node:18 AS base
-WORKDIR /usr/src/app
+# FROM node:18-alpine
+FROM node:21.1.0-alpine3.18
 
-# Install pnpm
+WORKDIR /app
+
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
-# Build Stage
-FROM base AS build
-COPY pnpm-lock.yaml ./
-COPY package.json ./
+COPY package.json .
+
 RUN pnpm install
+
+# RUN pnpm i -g serve
+
 COPY . .
+
 RUN pnpm build
 
-# Production Stage
-FROM nginx:alpine
-# Ensure the "dist" directory is copied to Nginx's html directory
-COPY --from=build /usr/src/app/dist /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 3000
 
-################
-
-# Dockerfile for React client
-
-# FROM node:18
-# WORKDIR /app
-# RUN corepack enable && corepack prepare pnpm@latest --activate
-# COPY ./package.json ./package.json
-# COPY ./public ./public
-# COPY ./src ./src
-# RUN pnpm install
-# EXPOSE 3000
-# CMD ["pnpm","start"]
+# CMD [ "serve", "-s", "dist" ]
+CMD [ "pnpm", "run", "preview" ]

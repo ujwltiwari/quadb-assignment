@@ -19,8 +19,8 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const { data, error } = useSession();
 
-  const goToProfile = () => {
-    navigate("/profile");
+  const goToProfile = (link = "/profile") => {
+    navigate(link);
   };
 
   useEffect(() => {
@@ -66,6 +66,7 @@ const LoginPage = () => {
         console.log(result);
         Cookies.set("token", result.data.token, { expires: 7, secure: true });
         toaster("success", "Login Successful");
+        setTimeout(goToProfile("/"), 2000);
       } catch (err) {
         console.log("error", err);
         toaster("error", err.response.data);

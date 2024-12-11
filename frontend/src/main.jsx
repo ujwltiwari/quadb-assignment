@@ -37,19 +37,43 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <Admin />,
+    element: (
+      <ProtectedRoute adminOnly={true}>
+        <Admin />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/admin/products",
-    element: <ProductsPage />,
+    element: (
+      <ProtectedRoute adminOnly={true}>
+        <ProductsPage />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/admin/products/create",
-    element: <AddProduct />,
+    element: (
+      <ProtectedRoute adminOnly={true}>
+        <AddProduct />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/admin/product/:id",
-    element: <EditProduct />,
+    element: (
+      <ProtectedRoute adminOnly={true}>
+        <EditProduct />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/admin/product-stock",
+    element: (
+      <ProtectedRoute adminOnly={true}>
+        <ProductStockPage />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "/register",
@@ -62,7 +86,7 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: (
-      <ProtectedRoute adminOnly={true}>
+      <ProtectedRoute>
         <ProfilePage />
       </ProtectedRoute>
     ),
@@ -78,10 +102,6 @@ const router = createBrowserRouter([
   {
     path: "/cart/order-confirmation",
     element: <OrderConfirmationPage />,
-  },
-  {
-    path: "/admin/product-stock",
-    element: <ProductStockPage />,
   },
 ]);
 createRoot(document.getElementById("root")).render(

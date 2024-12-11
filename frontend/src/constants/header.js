@@ -2,6 +2,8 @@ import { CiSearch } from "react-icons/ci";
 import Cart from "@/assets/icons/Cart.jsx";
 import { VscAccount } from "react-icons/vsc";
 
+import { CiLogout } from "react-icons/ci";
+
 export const headerItems = [
   {
     title: "Home",
@@ -24,5 +26,6 @@ export const headerItems = [
 export const headerIcons = [
   { icon: CiSearch, title: "Search" },
   { icon: Cart, title: "Cart", link: "/cart" },
-  { icon: VscAccount, title: "Account" },
+  { icon: VscAccount, title: "Account", link: "/login" },
+  { icon: CiLogout, title: "Logout" },
 ];

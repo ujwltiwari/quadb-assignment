@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const cart = useSelector((state) => state.cart.cart);
-  console.log(cart);
   return (
     <>
       <header className="flex justify-between pt-4">
@@ -31,6 +30,7 @@ const Header = () => {
           {headerIcons.map((item, idx) => {
             const cartCount = item.title === "Cart";
             const hasLink = item.link;
+
             return (
               <Link to={`${hasLink ? item.link : "#"}`} key={idx}>
                 <div key={idx} className={cartCount ? "relative" : ""}>
