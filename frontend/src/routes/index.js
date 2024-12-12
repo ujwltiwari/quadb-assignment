@@ -1,33 +1,33 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "@/App.jsx";
-import ShopHome from "@/modules/Shop/screens/ShopHome.jsx";
-import ProductDetails from "@/modules/Product/screens/ProductDetails.jsx";
-import AddProduct from "@/modules/Product/AddProduct/AddProduct.jsx";
-import Admin from "@/Admin.jsx";
-import ProductsPage from "@/modules/Product/screens/ProductsPage.jsx";
-import EditProduct from "@/modules/Product/EditProduct/EditProduct.jsx";
-import SignUpPage from "@/modules/Auth/screees/SignUp.jsx";
-import LoginPage from "@/modules/Auth/screees/Login.jsx";
-import ProfilePage from "@/modules/profile/screens/ProfilePage.jsx";
-import CartCheckoutPage from "@/modules/Cart/screens/CartCheckoutPage.jsx";
-import ProtectedRoute from "@/routes/ProtectedRoute.jsx";
-import CartPage from "@/modules/Cart/screens/CartPage.jsx";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import App from '@/App.jsx'
+import ShopHome from '@/modules/Shop/screens/ShopHome.jsx'
+import ProductDetails from '@/modules/Product/screens/ProductDetail.jsx'
+import AddProduct from '@/modules/Product/AddProduct/AddProduct.jsx'
+import Admin from '@/Admin.jsx'
+import ProductsPage from '@/modules/Product/screens/ProductsPage.jsx'
+import EditProduct from '@/modules/Product/EditProduct/EditProduct.jsx'
+import SignUpPage from '@/modules/Auth/screees/SignUp.jsx'
+import LoginPage from '@/modules/Auth/screees/Login.jsx'
+import ProfilePage from '@/modules/profile/screens/ProfilePage.jsx'
+import CartCheckoutPage from '@/modules/Cart/screens/CartCheckoutPage.jsx'
+import ProtectedRoute from '@/routes/ProtectedRoute.jsx'
+import CartPage from '@/modules/Cart/screens/CartPage.jsx'
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
   },
   {
-    path: "/shop",
+    path: '/shop',
     element: <ShopHome />,
   },
   {
-    path: "/shop/:id",
+    path: '/shop/:id',
     element: <ProductDetails />,
   },
   {
-    path: "/admin",
+    path: '/admin',
     element: (
       <ProtectedRoute adminOnly={true}>
         <Admin />
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/admin/products",
+    path: '/admin/products',
     element: (
       <ProtectedRoute adminOnly={true}>
         <ProductsPage />
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/admin/products/create",
+    path: '/admin/products/create',
     element: (
       <ProtectedRoute adminOnly={true}>
         <AddProduct />
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/admin/product/:id",
+    path: '/admin/product/:id',
     element: (
       <ProtectedRoute adminOnly={true}>
         <EditProduct />
@@ -59,15 +59,15 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/register",
+    path: '/register',
     element: <SignUpPage />,
   },
   {
-    path: "/login",
+    path: '/login',
     element: <LoginPage />,
   },
   {
-    path: "/profile",
+    path: '/profile',
     element: (
       <ProtectedRoute>
         <ProfilePage />
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/cart",
+    path: '/cart',
     element: (
       <ProtectedRoute>
         <CartPage />
@@ -83,17 +83,17 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/cart/checkout",
+    path: '/cart/checkout',
     element: (
       <ProtectedRoute>
         <CartCheckoutPage />
       </ProtectedRoute>
     ),
   },
-]);
+])
 
 const RoutesComponent = () => {
-  return <RouterProvider router={router} />;
-};
+  return <RouterProvider router={router} />
+}
 
-export default RoutesComponent;
+export default RoutesComponent

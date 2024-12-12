@@ -2,7 +2,7 @@ import ShopBanner from "@/modules/Shop/components/ShopBanner.jsx";
 import Layout from "@/components/layout/Layout.jsx";
 import Filter from "@/modules/Shop/components/filters/Filter.jsx";
 import { categoriesFilters, priceFilters } from "@/constants/shopFilters.js";
-import Products from "@/modules/Shop/components/Products.jsx";
+import Products from "@/modules/Shop/components/ProductList.jsx";
 import ContentWrapper from "@/components/ContentWrapper.jsx";
 import Footer from "@/components/layout/Footer.jsx";
 import { useEffect, useState } from "react";

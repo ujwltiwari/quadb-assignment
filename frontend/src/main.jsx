@@ -1,42 +1,42 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
-import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ShopHome from "@/modules/Shop/screens/ShopHome.jsx";
-import ProductDetails from "@/modules/Product/screens/ProductDetails.jsx";
-import AddProduct from "@/modules/Product/AddProduct/AddProduct.jsx";
-import Admin from "@/Admin.jsx";
-import ProductsPage from "@/modules/Product/screens/ProductsPage.jsx";
-import EditProduct from "@/modules/Product/EditProduct/EditProduct.jsx";
-import SignUpPage from "@/modules/Auth/screees/SignUp.jsx";
-import LoginPage from "@/modules/Auth/screees/Login.jsx";
-import ProfilePage from "@/modules/profile/screens/ProfilePage.jsx";
-import { Provider } from "react-redux";
-import { store, persistor } from "@/redux/store.js";
-import { PersistGate } from "redux-persist/integration/react";
-import CartPage from "@/modules/Cart/screens/CartPage.jsx";
-import CartCheckoutPage from "@/modules/Cart/screens/CartCheckoutPage.jsx";
-import ProtectedRoute from "@/routes/ProtectedRoute.jsx";
-import ProductStock from "@/modules/Admin/components/productStock/ProductStock.jsx";
-import ProductStockPage from "@/modules/Admin/screens/productStock/ProductStockPage.jsx";
-import OrderConfirmationPage from "@/modules/Cart/screens/OrderConfirmationPage.jsx";
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import ShopHome from '@/modules/Shop/screens/ShopHome.jsx'
+import ProductDetails from '@/modules/Product/screens/ProductDetail.jsx'
+import AddProduct from '@/modules/Product/AddProduct/AddProduct.jsx'
+import Admin from '@/Admin.jsx'
+import ProductsPage from '@/modules/Product/screens/ProductsPage.jsx'
+import EditProduct from '@/modules/Product/EditProduct/EditProduct.jsx'
+import SignUpPage from '@/modules/Auth/screees/SignUp.jsx'
+import LoginPage from '@/modules/Auth/screees/Login.jsx'
+import ProfilePage from '@/modules/profile/screens/ProfilePage.jsx'
+import { Provider } from 'react-redux'
+import { store, persistor } from '@/redux/store.js'
+import { PersistGate } from 'redux-persist/integration/react'
+import CartPage from '@/modules/Cart/screens/CartPage.jsx'
+import CartCheckoutPage from '@/modules/Cart/screens/CartCheckoutPage.jsx'
+import ProtectedRoute from '@/routes/ProtectedRoute.jsx'
+import ProductStock from '@/modules/Admin/components/productStock/ProductStock.jsx'
+import ProductStockPage from '@/modules/Admin/screens/productStock/ProductStockPage.jsx'
+import OrderConfirmationPage from '@/modules/Cart/screens/OrderConfirmationPage.jsx'
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
   },
   {
-    path: "/shop",
+    path: '/shop',
     element: <ShopHome />,
   },
   {
-    path: "/shop/:id",
+    path: '/shop/:id',
     element: <ProductDetails />,
   },
   {
-    path: "/admin",
+    path: '/admin',
     element: (
       <ProtectedRoute adminOnly={true}>
         <Admin />
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/admin/products",
+    path: '/admin/products',
     element: (
       <ProtectedRoute adminOnly={true}>
         <ProductsPage />
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/admin/products/create",
+    path: '/admin/products/create',
     element: (
       <ProtectedRoute adminOnly={true}>
         <AddProduct />
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/admin/product/:id",
+    path: '/admin/product/:id',
     element: (
       <ProtectedRoute adminOnly={true}>
         <EditProduct />
@@ -68,7 +68,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/admin/product-stock",
+    path: '/admin/product-stock',
     element: (
       <ProtectedRoute adminOnly={true}>
         <ProductStockPage />
@@ -76,15 +76,15 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/register",
+    path: '/register',
     element: <SignUpPage />,
   },
   {
-    path: "/login",
+    path: '/login',
     element: <LoginPage />,
   },
   {
-    path: "/profile",
+    path: '/profile',
     element: (
       <ProtectedRoute>
         <ProfilePage />
@@ -92,24 +92,24 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/cart",
+    path: '/cart',
     element: <CartPage />,
   },
   {
-    path: "/cart/checkout",
+    path: '/cart/checkout',
     element: <CartCheckoutPage />,
   },
   {
-    path: "/cart/order-confirmation",
+    path: '/cart/order-confirmation',
     element: <OrderConfirmationPage />,
   },
-]);
-createRoot(document.getElementById("root")).render(
+])
+createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <RouterProvider router={router} />
       </PersistGate>
     </Provider>
-  </StrictMode>,
-);
+  </StrictMode>
+)
